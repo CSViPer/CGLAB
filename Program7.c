@@ -1,6 +1,3 @@
-//Program 7 CG LAB
-
-
 #include "stdafx.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -10,7 +7,10 @@ point v[]={{0.0, 0.0, 1.0},{0.0, 0.9, -0.3}, {-0.8, -0.5, -0.3}, {0.8, -0.5, -0.
 int n;
 void triangle( point a, point b, point c)
 {
-	glBegin(GL_POLYGON); glNormal3fv(a); glVertex3fv(a); glVertex3fv(b);
+glBegin(GL_POLYGON); 
+glNormal3fv(a); 
+glVertex3fv(a); 
+glVertex3fv(b);
 glVertex3fv(c);
 glEnd();
 }
@@ -35,8 +35,7 @@ else triangle(a,b,c); // draw triangle at end of recursion
 }
 void tetrahedron( int m)
 {
-/* Apply triangle subdivision to faces of tetrahedron*/ 
-	glColor3f(1.0,0.0,0.0);
+glColor3f(1.0,0.0,0.0);
 divide_triangle(v[0], v[1], v[2], m); 
 glColor3f(0.0,0.0,0.0);
 divide_triangle(v[3], v[2], v[1], m);
@@ -52,7 +51,10 @@ glFlush();
 }
 void myReshape(int w, int h)
 {
-glClearColor (1.0, 1.0, 1.0, 1.0); glViewport(0, 0, w, h); glMatrixMode(GL_PROJECTION); glLoadIdentity();
+glClearColor (1.0, 1.0, 1.0, 1.0); 
+glViewport(0, 0, w, h); 
+glMatrixMode(GL_PROJECTION); 
+glLoadIdentity();
 if (w <= h)
 glOrtho(- 2.0, 2.0, -2.0 * (GLfloat) h / (GLfloat) w, 2.0 * (GLfloat) h / (GLfloat) w, -10.0, 10.0);
 else
